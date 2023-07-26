@@ -10,5 +10,3 @@ class Solution:
                 return k
             else:
                 k += 1
-    
-        return k + 1
