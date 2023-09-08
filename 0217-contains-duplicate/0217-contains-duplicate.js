@@ -7,14 +7,8 @@ var containsDuplicate = function(nums) {
     //o: boolean
     //c:
     //e: empty array
-    let map = {}
-    for (let n of nums) {
-        if (map[n]) {
-            return true
-        }
-        map[n] = 1
-    }
-    return false
+    let nums_set = new Set(nums)
+    return nums_set.size !== nums.length
 
     
 };
