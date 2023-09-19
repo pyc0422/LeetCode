@@ -4,11 +4,11 @@
  */
 var findDuplicate = function(nums) {
     let map = {}
-    for (let i = 0; i < nums.length; i ++) {
-        if (map[nums[i]] !== undefined) {
-            return nums[i]
+    for (const n of nums) {
+        if (map[n] !== undefined) {
+            return n
         }
-        map[nums[i]] = i
+        map[n] = 1
     }
 
 };
