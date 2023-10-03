@@ -13,12 +13,12 @@ var LRUCache = function(capacity) {
 LRUCache.prototype.get = function(key) {
     if (!this.storage.has(key)) {
         return - 1
-    } else {
-        const val = this.storage.get(key);
-        this.storage.delete(key)
-        this.storage.set(key, val)
-        return val
-    }
+    } 
+    const val = this.storage.get(key);
+    this.storage.delete(key)
+    this.storage.set(key, val)
+    return val
+    
 };
 
 /** 
@@ -29,8 +29,6 @@ LRUCache.prototype.get = function(key) {
 LRUCache.prototype.put = function(key, value) {
     if (this.storage.has(key)) {
         this.storage.delete(key)
-        this.storage.set(key,value)
-        return;
     } 
     if (this.storage.size === this.max) {
         const cur = this.storage.keys().next().value
