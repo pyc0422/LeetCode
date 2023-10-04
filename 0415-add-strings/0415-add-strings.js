@@ -16,7 +16,6 @@ var addStrings = function(num1, num2) {
     num1 = num1.split("")
     num2 = num2.split("")
     // iterate both num1 from the last c to the fisrt
-    console.log(num1, num2)
     let remind = 0
     while (num1.length || num2.length) {
         let temp = remind + Number(num1.pop()||0) + Number(num2.pop()||0)
