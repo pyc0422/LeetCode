@@ -18,7 +18,9 @@ var addStrings = function(num1, num2) {
     // iterate both num1 from the last c to the fisrt
     let remind = 0
     while (num1.length || num2.length) {
-        let temp = remind + Number(num1.pop()||0) + Number(num2.pop()||0)
+        const n1 = num1.pop() || '0'
+        const n2 = num2.pop() || '0'
+        let temp = remind + Number(n1) + Number(n2)
         remind = 0
         if (temp < 10) {
             res.unshift(temp.toString())
