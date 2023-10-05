@@ -12,15 +12,15 @@ var isAnagram = function(s, t) {
         return false
     }
     let map = {}
-    for (let i = 0; i < s.length; i ++) {
-        map[s[i]] = (map[s[i]] || 0) + 1
+    for (let c of s) {
+        map[c] = (map[c] || 0) + 1
     }
-    for (let j = 0; j < t.length; j++) {
-        if (map[t[j]] === undefined) {
+    for (let c of t) {
+        if (!map[c]) {
             return false
         }
-        map[t[j]] --;
-        if (map[t[j]] < 0) {
+        map[c] --
+        if (map[c] < 0) {
             return false
         }
     }
