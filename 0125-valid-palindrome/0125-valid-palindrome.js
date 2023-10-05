@@ -7,22 +7,16 @@ var isPalindrome = function(s) {
     //o:boolean
     //c: change to lowercase,remove all the non-alphanumeric
     //e: s.length = 0
-    if (s.length <= 1) {
-        return true;
+  let newStr = s.replace(/[^a-z0-9]/gi,"").toLowerCase();
+  let left = 0
+  let right = newStr.length - 1
+  while (left <= right){
+     if (newStr[left] !== newStr[right]) {
+    	return false 
     }
-    var str = s.match(/[a-zA-Z0-9]/g);
-    if (!str) {
-        return true;
-    }
-    var clearStr = str.map(l => l.toLowerCase());
-    var left = 0;
-    var right = clearStr.length - 1;
-    while (left <= right) {
-        if (clearStr[left] !== clearStr[right]) {
-            return false;
-        }
-        left ++;
-        right --;
-    }
-    return true;
+    left ++
+    right --
+  }
+  return true
+
 };
