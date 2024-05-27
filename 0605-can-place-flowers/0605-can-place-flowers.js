@@ -10,9 +10,7 @@ var canPlaceFlowers = function(flowerbed, n) {
     // e: n == 0
     if (n === 0) return true;
     if (n === 1 && flowerbed.length === 1) return flowerbed[0] === 0
-    // if (n > Math.floor(flowerbed.length / 2)) return false
     let i = 0;
-    
     while (i < flowerbed.length) {
         const left = i - 1 
         const right = i + 1
@@ -21,21 +19,21 @@ var canPlaceFlowers = function(flowerbed, n) {
             // console.log('i === 0', flowerbed)
             // console.log('left,', left, flowerbed[left])
             // console.log('right', right, flowerbed[right])
-            if (left < 0 && flowerbed[right] === 0) {
-                console.log('in first if')
+            if (left < 0 && flowerbed[right] === 0
+               || right > flowerbed.length - 1 && flowerbed[left] === 0
+               || flowerbed[left] === 0 && flowerbed[right] ===0) {
                 flowerbed[i] = 1
                 n --;
             }
-            if (right > flowerbed.length - 1 && flowerbed[left] === 0) {
-                console.log('in second if')
-                flowerbed[i] = 1
-                n--;
-            } 
-            if (flowerbed[left] === 0 && flowerbed[right] ===0) {
-                flowerbed[i] = 1;
-                console.log('changed,' , flowerbed, i)
-                n --;   
-            }
+            // if (right > flowerbed.length - 1 && flowerbed[left] === 0) {
+            //     flowerbed[i] = 1
+            //     n--;
+            // } 
+            // if (flowerbed[left] === 0 && flowerbed[right] ===0) {
+            //     flowerbed[i] = 1;
+            //     console.log('changed,' , flowerbed, i)
+            //     n --;   
+            // }
         }
         i ++;
     }
