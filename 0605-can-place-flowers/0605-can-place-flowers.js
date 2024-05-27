@@ -9,20 +9,14 @@ var canPlaceFlowers = function(flowerbed, n) {
     // c: array length >= 1
     // e: n == 0
     if (n === 0) return true;
-    if (n === 1 && flowerbed.length === 1) return flowerbed[0] === 0
-    let i = 0;
-    while (i < flowerbed.length) {
-        const left = i - 1 
-        const right = i + 1
-        if (flowerbed[i] === 0) {
-            if (left < 0 && flowerbed[right] === 0
-               || right > flowerbed.length - 1 && flowerbed[left] === 0
-               || flowerbed[left] === 0 && flowerbed[right] ===0) {
-                flowerbed[i] = 1
-                n --;
-            }
+
+    for(let i = 0; i < flowerbed.length; i++) {
+        const left = i - 1 < 0 ? 0 : flowerbed[i - 1] 
+        const right = i + 1 > flowerbed.length -1 ? 0 : flowerbed[i+1]
+        if (left + flowerbed[i] + right === 0) {
+            flowerbed[i] = 1;
+            n--;
         }
-        i ++;
     }
-    return n > 0 ? false : true
+    return n <= 0
 };
