@@ -14,29 +14,15 @@ var canPlaceFlowers = function(flowerbed, n) {
     while (i < flowerbed.length) {
         const left = i - 1 
         const right = i + 1
-        // console.log('i', i)
         if (flowerbed[i] === 0) {
-            // console.log('i === 0', flowerbed)
-            // console.log('left,', left, flowerbed[left])
-            // console.log('right', right, flowerbed[right])
             if (left < 0 && flowerbed[right] === 0
                || right > flowerbed.length - 1 && flowerbed[left] === 0
                || flowerbed[left] === 0 && flowerbed[right] ===0) {
                 flowerbed[i] = 1
                 n --;
             }
-            // if (right > flowerbed.length - 1 && flowerbed[left] === 0) {
-            //     flowerbed[i] = 1
-            //     n--;
-            // } 
-            // if (flowerbed[left] === 0 && flowerbed[right] ===0) {
-            //     flowerbed[i] = 1;
-            //     console.log('changed,' , flowerbed, i)
-            //     n --;   
-            // }
         }
         i ++;
     }
-    console.log('n', n)
     return n > 0 ? false : true
 };
