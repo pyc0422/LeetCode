@@ -5,9 +5,7 @@
 var reverseParentheses = function(s) {
     let stack = [];
     for (let c of s) {
-        if (c === '(') {
-            stack.push(c)
-        } else if (c === ')') {
+        if (c === ')') {
             let temp = '';
             while (stack.length && stack[stack.length - 1] !== '(') {
                 const cur = stack.pop().split('').reverse().join('')
