@@ -7,9 +7,8 @@ var longestConsecutive = function(nums) {
     // o: n-> length of the longest consecutive elem seq
     // c: O(n)
     // e: input length = 0
-    const len = nums.length
-    if (len < 2) {
-        return len
+    if (nums.length < 2) {
+        return nums.length
     }
     const sorted = nums.sort((a,b) => a -b)
     let temp = 1;
